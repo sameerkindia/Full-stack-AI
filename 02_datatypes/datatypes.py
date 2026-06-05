@@ -57,19 +57,32 @@ num_float = 1.5
 
 # 1. tuple is immutable. We can't modify it after it created in memory
 
-first_tuple = ('sameer', 'khan', 26, True)
+# first_tuple = ('sameer', 'khan', 26, True)
 
-print(f"this is first tuple {first_tuple}")
-print(f"We can access single item {first_tuple[2]}")
-# print(f"If we access item far more then it's index we got IndexError {first_tuple[6]}")
-print(f"-1 always give us last items {first_tuple[-1]}")
+# print(f"this is first tuple {first_tuple}")
+# print(f"We can access single item {first_tuple[2]}")
+# # print(f"If we access item far more then it's index we got IndexError {first_tuple[6]}")
+# print(f"-1 always give us last items {first_tuple[-1]}")
 
 
 
-# 2. Without ',' (comma) Python treat value as a string
+# # 2. Without ',' (comma) Python treat value as a string
 
-tuple_1 = ('sameer') # It's treated like a string
-tuple_2 = ('sameer',)
+# tuple_1 = ('sameer') # It's treated like a string
+# tuple_2 = ('sameer',)
 
-print(f"this is without comma ',' = {tuple_1}")
-print(f"this is with comma ',' = {tuple_2}")
+# print(f"this is without comma ',' = {tuple_1}")
+# print(f"this is with comma ',' = {tuple_2}")
+
+
+
+## Membership in Python (in or not in)
+
+city_data = ("Pali", "Rajasthan", "India")
+
+# city,state,country = city_data
+
+# print(f"We can destructure items in variables = {city}, {state}, {country}")
+
+print(f"This is memebership 'in' = {'Pali' in city_data}")
+print(f"This is memebership 'not in' = {'Pali' not in city_data}")
