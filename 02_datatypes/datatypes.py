@@ -34,19 +34,42 @@ num_float = 1.5
 
 # String
 
-name = "sameer"
+# name = "sameer"
 
-print(f"first letter of name {name[0]}")
-print(f"last letter of name {name[-1]}")
-print(f"total 'e' letter in name {name.count("e")}")
-print(f"name with uppercase {name.upper()}")
-print(f"name with titlecase {name.title()}")
+# print(f"first letter of name {name[0]}")
+# print(f"last letter of name {name[-1]}")
+# print(f"total 'e' letter in name {name.count("e")}")
+# print(f"name with uppercase {name.upper()}")
+# print(f"name with titlecase {name.title()}")
 
 # print(f"name slicing {name[0:4]}")
 # print(f"name slicing {name[::2]}")
 # print(f"name slicing {name[0:4:2]}")
 
 
-print(f"replace word e with h {name.replace('e', 'h')}")
-print(f"finding index of substring mee {name.find('mee')}")
-print(f"spliting name into an array/list {name.split('e')}")
+# print(f"replace word e with h {name.replace('e', 'h')}")
+# print(f"finding index of substring mee {name.find('mee')}")
+# print(f"spliting name into an array/list {name.split('e')}")
+
+
+
+# Let's learn about tuple
+
+# 1. tuple is immutable. We can't modify it after it created in memory
+
+first_tuple = ('sameer', 'khan', 26, True)
+
+print(f"this is first tuple {first_tuple}")
+print(f"We can access single item {first_tuple[2]}")
+# print(f"If we access item far more then it's index we got IndexError {first_tuple[6]}")
+print(f"-1 always give us last items {first_tuple[-1]}")
+
+
+
+# 2. Without ',' (comma) Python treat value as a string
+
+tuple_1 = ('sameer') # It's treated like a string
+tuple_2 = ('sameer',)
+
+print(f"this is without comma ',' = {tuple_1}")
+print(f"this is with comma ',' = {tuple_2}")
