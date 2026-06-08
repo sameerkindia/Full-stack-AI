@@ -84,5 +84,35 @@ city_data = ("Pali", "Rajasthan", "India")
 
 # print(f"We can destructure items in variables = {city}, {state}, {country}")
 
-print(f"This is memebership 'in' = {'Pali' in city_data}")
-print(f"This is memebership 'not in' = {'Pali' not in city_data}")
+# print(f"This is memebership 'in' = {'Pali' in city_data}")
+# print(f"This is memebership 'not in' = {'Pali' not in city_data}")
+
+
+
+
+
+# List in python (in JS it's called array)
+
+# What is List in python ?
+
+# List is a mutable data type. We can store multiple items in it like we can do in tuple but in List we can modify it. We can crate List with []. All the key consept is the same as JS array
+
+my_list = ["Sameer","Khan", "Pali", "Rajasthan", True, 26]
+
+print(f"this is my list {my_list}")
+print(f"this is the first item in my list {my_list[0]}")
+print(f"this is the last item in my list {my_list[-1]}")
+
+my_list[4] = False
+print(f"my list after mutating item {my_list}")
+
+my_list.append("India")
+print(f"my list after appending {my_list}")
+
+my_list.insert(2, "Innu")
+print(f"my list after inserting an item at index 2 {my_list}")
+
+my_list.remove("Innu")
+print(f"my list after remove an item {my_list}")
+
+# There are more method in List but we go through as we move ahead with learning
