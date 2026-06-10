@@ -131,8 +131,8 @@ my_colors_2 = my_colors_1
 
 my_colors_2.append('pink')
 
-print(f"this is my color 2 {my_colors_2}") # output -> ['red', 'blue', 'green', 'pink']
-print(f"this is my color 1 {my_colors_1}") # output -> ['red', 'blue', 'green', 'pink']
+# print(f"this is my color 2 {my_colors_2}") # output -> ['red', 'blue', 'green', 'pink']
+# print(f"this is my color 1 {my_colors_1}") # output -> ['red', 'blue', 'green', 'pink']
 
 # This happen becouse Python just point the my_colors_2 to my_colors_1 memory 
 
@@ -143,5 +143,21 @@ my_colors_2 = my_colors_1.copy()
 
 my_colors_2.pop()
 
-print(f"this is my color 2 {my_colors_2}") # Output -> ['red', 'blue', 'green']
-print(f"this is my color 1 {my_colors_1}") # Output -> ['red', 'blue', 'green', 'pink']
+# print(f"this is my color 2 {my_colors_2}") # Output -> ['red', 'blue', 'green']
+# print(f"this is my color 1 {my_colors_1}") # Output -> ['red', 'blue', 'green', 'pink']
+
+
+
+
+# Let's learn about Operator overloading
+
+# What is Operator overloading ?
+# When we do 2 + 3 we got 5
+# When we do 'Sameer' + ' ' + 'Khan' we got 'Sameer Khan'
+# This is called operator overloading in Python.
+
+t_list = [1,2,3] + [4,5,6] # -> [1, 2, 3, 4, 5, 6]
+t_list_2 = [1,2,3] * 2 # -> [1, 2, 3, 1, 2, 3]
+t_list_3 = [1,2,3] * 2
+print(t_list)
+print(t_list_2)
