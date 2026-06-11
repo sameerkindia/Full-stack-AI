@@ -131,8 +131,8 @@ my_colors_2 = my_colors_1
 
 my_colors_2.append('pink')
 
-print(f"this is my color 2 {my_colors_2}") # output -> ['red', 'blue', 'green', 'pink']
-print(f"this is my color 1 {my_colors_1}") # output -> ['red', 'blue', 'green', 'pink']
+# print(f"this is my color 2 {my_colors_2}") # output -> ['red', 'blue', 'green', 'pink']
+# print(f"this is my color 1 {my_colors_1}") # output -> ['red', 'blue', 'green', 'pink']
 
 # This happen becouse Python just point the my_colors_2 to my_colors_1 memory 
 
@@ -143,5 +143,87 @@ my_colors_2 = my_colors_1.copy()
 
 my_colors_2.pop()
 
-print(f"this is my color 2 {my_colors_2}") # Output -> ['red', 'blue', 'green']
-print(f"this is my color 1 {my_colors_1}") # Output -> ['red', 'blue', 'green', 'pink']
+# print(f"this is my color 2 {my_colors_2}") # Output -> ['red', 'blue', 'green']
+# print(f"this is my color 1 {my_colors_1}") # Output -> ['red', 'blue', 'green', 'pink']
+
+
+
+
+# Let's learn about Operator overloading
+
+# What is Operator overloading ?
+# When we do 2 + 3 we got 5
+# When we do 'Sameer' + ' ' + 'Khan' we got 'Sameer Khan'
+# This is called operator overloading in Python.
+
+t_list = [1,2,3] + [4,5,6] # -> [1, 2, 3, 4, 5, 6]
+t_list_2 = [1,2,3] * 2 # -> [1, 2, 3, 1, 2, 3]
+t_list_3 = [1,2,3] * 2
+# print(t_list)
+# print(t_list_2)
+
+
+
+
+
+# Dictionary (Object in JS)
+
+# Today im gonna learn about Dictionary. It's a data structure same like Objact in JS.
+# It's a mutable data type
+
+user_profile = {"name": "Sameer",
+                "age": 26,
+                "city":'Pali',
+                'country':'India'}
+
+# print(f"This is user_profile {user_profile}")
+
+# Rules for Dictionary
+# 1. Keys should be unique other wise Python overwrite old value
+# 2. Keys should be immutable data types like :- String, Int or tuple etc.
+# 3. Value can be anything
+
+
+# Modifying data
+user_profile["name"] = "Sameer Khan"
+# print(f"This is user_profile {user_profile}")
+
+# print(f"This is user_profile {user_profile['age']}")
+# With this approach we have a problem. If Key isn't there in the Dictionary then our Python will crash. To overcome this problem we can use .get() methond.
+
+# print(f"With get method {user_profile.get('age')}")
+# print(f"With get method if Key isn't there {user_profile.get('new_age')}")
+# print(f"We can throw custom message if Key isn't there {user_profile.get('new_age', 'Not found')}")
+
+
+# We can add new items in Dictionary like this
+user_profile['house_number'] = '192'
+# print(f"This is user_profile {user_profile}")
+
+
+# We can also get Keys, Values and Items and loop over it
+# print(f"This is user_profile's Keys {user_profile.keys()}")
+# print(f"This is user_profile's Values {user_profile.values()}")
+# print(f"This is user_profile's Items {user_profile.items()}")
+
+# for key,value in user_profile.items():
+#     print(f"{key} and {value}")
+
+# for item in user_profile.items():
+#     print(f"This is item {item}")
+
+
+# # We have .pop() method to remove items and store in a variable 
+# user_name = user_profile.pop("name")
+
+# print(f"This is user name {user_name}")
+# print(f"This is user_profile after removing name {user_profile}")
+
+# We can clear whole list with .clear() method
+# And we can delete any item without storing in any variable
+
+del user_profile["house_number"]
+# print(f"This is user_profile after deleting house number {user_profile}")
+
+
+# With this we are done with basic data types in python module
