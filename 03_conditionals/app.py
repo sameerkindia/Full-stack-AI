@@ -45,6 +45,66 @@ has_driving_licance = False;
 ### Inline conditionals (ternary operator)
 ## We can write conditionals in a single line
 
-status = 'Adult' if age >= 18 else 'Minor'
+# status = 'Adult' if age >= 18 else 'Minor'
 
-print(status)
+# print(status)
+
+
+
+### Structural pattern matching
+
+# status_code = 404;
+# status_code = 200;
+# status_code = 111;
+
+# match status_code:
+#     case 200:
+#         print(f"status is OK");
+#     case 404:
+#         print(f"Not found");
+#     case _:
+#         print(f"unknow status code")
+
+
+# day = 'Sunday';
+
+# match day:
+#     case 'Monday' | 'Tuesday' | 'Wednesday':
+#         print(f"We are open Full day");
+#     case 'Sunday' :
+#         print(f"We are open till 11AM.");
+#     case _:
+#         print(f"Sorry! We are closed");
+
+
+
+
+### Advanced matching with data stracutres (list and tupels)
+
+command = ("move", 'forword');
+# command = ("jump", 3,4);
+
+# match command:
+#     case ('quit'):
+#         print(f"Bye");
+#     case ('move', diraction):
+#         print(f"move {diraction}");
+#     case ('jump', x, y):
+#         print(f"jump to: {x} {y}");
+#     case _:
+#         print(f"Command not found");
+
+# print(diraction)
+
+# is_game_on = True;
+is_game_on = False;
+
+match command:
+    case ('quit'):
+        print(f"Bye");
+    case ('move', diraction) if is_game_on:
+        print(f"move {diraction}");
+    case ('jump', x, y):
+        print(f"jump to: {x} {y}");
+    case _:
+        print(f"Command not found");
