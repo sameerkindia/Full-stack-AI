@@ -85,9 +85,26 @@ def master_function(*test, **kwtest):
 
     return test, kwtest;
 
-master_function(1,2,3,"sameer", name="Sameer Khan", city="Pali", age=26)
+# master_function(1,2,3,"sameer", name="Sameer Khan", city="Pali", age=26)
+# test1 , test2 = master_function(1,2,3,"sameer", name="Sameer Khan", city="Pali", age=26);
 
-test1 , test2 = master_function(1,2,3,"sameer", name="Sameer Khan", city="Pali", age=26);
+# print(f"*args :- {test1}")
+# print(f"*kwargs :- {test2}")
 
-print(f"*args :- {test1}")
-print(f"*kwargs :- {test2}")
+
+
+
+
+### Lambda expresson
+### Lambda is like arrow function in JS. It's annomous function expression. We don't use def keyword to define these function and don't use return keyword.
+### It's single line function expression.
+
+lambda_expression = lambda x : x * x;
+
+# print(lambda_expression(4))
+
+
+### Pure vs Impure function 
+### Pure function :- These functions generate same output with same input. It doesn't change any global variables.
+
+### Impure function :- These function change global state. It's behavior depend on external variables
