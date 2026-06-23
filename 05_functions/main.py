@@ -85,9 +85,77 @@ def master_function(*test, **kwtest):
 
     return test, kwtest;
 
-master_function(1,2,3,"sameer", name="Sameer Khan", city="Pali", age=26)
+# master_function(1,2,3,"sameer", name="Sameer Khan", city="Pali", age=26)
+# test1 , test2 = master_function(1,2,3,"sameer", name="Sameer Khan", city="Pali", age=26);
 
-test1 , test2 = master_function(1,2,3,"sameer", name="Sameer Khan", city="Pali", age=26);
+# print(f"*args :- {test1}")
+# print(f"*kwargs :- {test2}")
 
-print(f"*args :- {test1}")
-print(f"*kwargs :- {test2}")
+
+
+
+
+### Lambda expresson
+### Lambda is like arrow function in JS. It's annomous function expression. We don't use def keyword to define these function and don't use return keyword.
+### It's single line function expression.
+
+lambda_expression = lambda x : x * x;
+
+# print(lambda_expression(4))
+
+
+### Pure vs Impure function 
+### Pure function :- These functions generate same output with same input. It doesn't change any global variables.
+
+### Impure function :- These function change global state. It's behavior depend on external variables.
+
+state_1 = 1;
+
+def update_state():
+    global state_1; ## We'll learn about global keyword next
+    state_1 += 1;
+
+# update_state()
+# update_state()
+# update_state()
+# update_state()
+# print(state_1)
+
+
+
+### 7. Variable Scope :- local, nonlocal and global
+
+### In program we how we declare variables deside where we can use, modify and access that variable.
+### Python use (LEGB) rule to evaluate scope
+### Local, Enclosing, Global, Built-in
+
+
+### A. Global scope.
+### These variables are define in main body of file. These are accessable form everyware in the file. But we can't modify these variables without 'global' keyword. As we did in impure function.
+
+
+### B. Local scope.
+### These are block scope means we can only access these inside the block. Like if we declare a variable in function we can only access that variable inside the function.
+
+
+### 3. Enclosing and Nonlocal scope.
+### When we nest a function inside anothere function then it's outer scope become his Enclosing scope.
+
+
+state_a = 1;
+
+def update_new_state():
+    # state_b = 2;
+    state_a = 2;
+    def inside_func():
+        # state_c = 3; 
+        # state_a = 3; 
+
+        nonlocal state_a;
+        state_a += 5
+        # print(f"state a = {state_a}, state b = {state_b}, state c = {state_c}"); ### this work fine
+        print(f"state a = {state_a}"); ### this work fine
+
+    inside_func();
+
+update_new_state()
