@@ -158,4 +158,29 @@ def update_new_state():
 
     inside_func();
 
-update_new_state()
+# update_new_state()
+
+
+
+
+
+### 8. Modules and imports
+### Finally we are comming to end of this section.
+
+### A module is simply a file with code that we can use in another file. Modules allow us to break code in small and manageable chaunk.
+
+### - common import syntex
+
+# import math
+# from math import sqrt
+# from math import sqrt as multi
+
+# print(multi(10))
+
+from module_1 import num_1;
+
+print(num_1)
+
+from mymodules import calculator
+
+print(calculator.add(2, 5))
