@@ -30,3 +30,16 @@ word_str = 'banana'
 unique_letters = {word for word in word_str}
 
 print(unique_letters)
+
+
+lazy_gen = (n ** 2 for n in range(1000000))  
+
+print(lazy_gen)
+print(next(lazy_gen))
+print(next(lazy_gen))
+print(next(lazy_gen))
+print(next(lazy_gen))
+print(next(lazy_gen))
+print(next(lazy_gen))
+print(next(lazy_gen))
+print(next(lazy_gen))
