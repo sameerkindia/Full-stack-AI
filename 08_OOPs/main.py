@@ -58,7 +58,7 @@ class Car(Vehical): # We inherit class like this
    
 
 my_car = Car("Jeep", 'top model', 'black')
-print(my_car.start_engine())
+# print(my_car.start_engine())
 
 
 
@@ -104,4 +104,94 @@ class ComplexCar:
 
 
 my_complex_car = ComplexCar("Ford", "Mustang", 450, "Bang & Olufsen")
-print(my_complex_car.drive())
+# print(my_complex_car.drive())
+
+
+
+
+
+### Method Resolution Order (MRO)
+
+### MRO is the strict order or hidden "roadmap" Python follows to look up a method or attribute when a class uses Multiple Inheritance (inheriting from more than one parent class).
+
+class A:
+    def process(self) : return "Process A"
+
+class B(A): # B Inherit A Class
+    # B's process method overrides A's process method
+    def process(self): return "Process B"
+
+class C(A):
+    def process(): return "Process C"
+
+
+# Parents are checked in the exact order they are listed in the class definition. (First it checks B and if he founds the method he will stop searching and call the method)
+class D(B,C): # Multiple Inheritance
+    pass
+
+obj = D()
+
+# print(obj.process())
+# print(D.__mro__)
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Static Methods (@staticmethod)
+### A Static Method is a regular function housed inside a class namespace purely for organizational or logical grouping.
+
+class MathUtility:
+    @staticmethod
+    def is_even(number): # No self or cls argument
+        return number % 2 == 0
+    
+
+# print(MathUtility.is_even(10))
+# print(MathUtility.is_even(9))
+
+
+
+
+### Class Methods vs. Static Methods
+
+### A Class Method is tightly linked to the class itself rather than individual instances. It automatically takes a first argument named cls, which represents the class object. It is heavily used to create factory methods (alternative ways to initialize objects).
+
+
+class Employee:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @classmethod
+    def from_string(cls, data):
+        name, age = data.split('-')
+        return cls(name, int(age))
+    
+    @classmethod
+    def from_dict(cls, data):
+        # return cls(data)
+        return cls(data["name"], data["age"])
+    
+
+    @staticmethod
+    def is_workday(day):
+        return day not in ["Saturday", "Sunday"]
+    
+
+sameer = Employee.from_string("Sameer Khan-26")
+sameer2 = Employee.from_dict({"name": "Sameer khan", "age": 26})
+
+print(sameer.name)
+print(sameer2.name)
+
+print(sameer2.is_workday("Friday"))
+print(Employee.is_workday('Monday'))
