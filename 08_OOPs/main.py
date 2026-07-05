@@ -144,8 +144,6 @@ obj = D()
 
 
 
-
-
 ### Static Methods (@staticmethod)
 ### A Static Method is a regular function housed inside a class namespace purely for organizational or logical grouping.
 
@@ -195,3 +193,37 @@ print(sameer2.name)
 
 print(sameer2.is_workday("Friday"))
 print(Employee.is_workday('Monday'))
+
+
+
+### Property Decorators (Getters & Setters)
+### The @property decorator allows we to turn a standard method into an encapsulated attribute. This lets we run logic or validation behind the scenes while keeping our public-facing code looking like simple attribute access (obj.attribute).
+
+### Getter (@property): Runs whenever someone reads the attribute value.
+
+### Setter (@attribute.setter): Runs whenever someone attempts to modify or overwrite the attribute value. Allows we to intercept bad values before they break our code.
+
+
+class Temperature:
+    def __init__(self, celsius):
+        self._celsius = celsius  # Protected attribute (under the hood)
+
+    # Getter: Accesses property like an attribute
+    @property
+    def celsius(self):
+        print("Getting temperature value...")
+        return self._celsius
+
+    # Setter: Validates and intercepts assignments
+    @celsius.setter
+    def celsius(self, value):
+        if value < -273.15:
+            raise ValueError("Temperature below Absolute Zero is impossible!")
+        print("Setting temperature value...")
+        self._celsius = value
+
+t = Temperature(25)
+
+print(t.celsius)
+
+t.celsius = 30
