@@ -54,3 +54,19 @@ thread2.join()
 
 threaded_duration = time.time() - start_time
 print(f"✅ Multithreaded Total Time: {threaded_duration:.2f} seconds\n")
+
+
+
+def fetch_data(api_url):
+    print(f"Starting request for {api_url}")
+    time.sleep(2)  # Simulates network wait (Drops the GIL automatically)
+    print(f"Finished fetching {api_url}")
+
+# Spin up parallel network workers
+t1 = threading.Thread(target=fetch_data, args=("api/users",))
+t2 = threading.Thread(target=fetch_data, args=("api/products",))
+
+t1.start()
+t2.start()
+t1.join()  # Wait for workers to finish
+t2.join()
