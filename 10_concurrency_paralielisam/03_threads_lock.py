@@ -41,3 +41,24 @@ t1.join()
 t2.join()
 
 print(f"Threads End time {time.time() - start_time}")
+
+
+shared_counter = 0
+lock = threading.Lock()
+
+def unsafe_worker():
+    global shared_counter
+    for _ in range(100000):
+        # UNPROTECTED: High risk of race conditions
+        current_val = shared_counter
+        time.sleep(0.000001)  # Forces the OS to switch threads
+        shared_counter = current_val + 1
+
+def safe_worker():
+    global shared_counter
+    for _ in range(100000):
+        # PROTECTED: The lock ensures atomic operations
+        with lock: 
+            current_val = shared_counter
+            time.sleep(0.000001)
+            shared_counter = current_val + 1
