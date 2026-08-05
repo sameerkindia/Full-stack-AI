@@ -28,3 +28,65 @@ def display_tasks(tasks):
             checkbox = "✅" if task["done"] else " "
             print(f"{i}. [{checkbox}] {task['text']}")
     print()
+
+
+
+def task_manager():
+    tasks = load_tasks()
+
+    while True:
+        # display_tasks(tasks)
+        print("\n-------Task List Manager-----")
+        print("Options:")
+        print("1. Add a task")
+        print("2. View task")
+        print("3. Mark a task as done")
+        print("4. Delete task")
+        print("5. Exit")
+
+        choice = input("Choose an option: (1-5) ").strip()
+
+        match choice:
+            case "1":
+                text = input("Enter the task: ").strip()
+                if text:
+                    tasks.append({"text": text, "done": False})
+                    save_tasks(tasks)
+                else: 
+                    print("Task cannot be empty")
+
+            case "2":
+                display_tasks(tasks)
+            case "3":
+                display_tasks(tasks)
+                try:    
+                    num = int(input("Enter the task number to mask as done: "))
+                    if 1 <= num <= len(tasks):
+                        tasks[num - 1]["done"] = True
+                        save_tasks(tasks)
+                        print("task marked as DONE")
+                    else:
+                        print("Invalid task number")
+                except ValueError:
+                    print("Please enter a number")
+            case "4":
+                display_tasks(tasks)
+                try:
+                    num = int(input("Enter the task number to remove: "))
+                    if 1 <= num < len(tasks):
+                        removed = tasks.pop(num - 1)
+                        save_tasks(tasks)
+                        print(f"task removed {removed['text']}")
+                    else:
+                        print("Invalid task number.")
+                except ValueError:
+                    print("Please enter a number")
+
+            case "5":
+                print("Exiting task Manager")
+                break
+            case _ :
+                print("Please choose a valid option") 
+
+
+task_manager()
