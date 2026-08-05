@@ -1,0 +1,2 @@
+finish this script  || done
+learn Python || not_done
