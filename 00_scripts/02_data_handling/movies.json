@@ -1,0 +1,32 @@
+[
+  {
+    "title": "zero",
+    "genre": "drama",
+    "rating": 7.5
+  },
+  {
+    "title": "race 3",
+    "genre": "action",
+    "rating": 5.0
+  },
+  {
+    "title": "davdas",
+    "genre": "drama, romance",
+    "rating": 9.0
+  },
+  {
+    "title": "welcome",
+    "genre": "comady",
+    "rating": 9.0
+  },
+  {
+    "title": "dhoom",
+    "genre": "action",
+    "rating": 8.0
+  },
+  {
+    "title": "kick",
+    "genre": "action, drama",
+    "rating": 7.0
+  }
+]
