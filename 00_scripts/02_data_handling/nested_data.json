@@ -1,0 +1,40 @@
+{
+  "company": {
+    "name": "Tech Solutions",
+    "location": {
+      "city": "San Francisco",
+      "state": "CA",
+      "country": "USA"
+    },
+    "departments": [
+      {
+        "name": "Engineering",
+        "employees": [
+          {
+            "id": 1,
+            "name": "Alice Smith",
+            "role": "Software Engineer",
+            "skills": ["Python", "JavaScript", "React"]
+          },
+          {
+            "id": 2,
+            "name": "Bob Johnson",
+            "role": "DevOps Engineer",
+            "skills": ["AWS", "Docker", "Kubernetes"]
+          }
+        ]
+      },
+      {
+        "name": "Marketing",
+        "employees": [
+          {
+            "id": 3,
+            "name": "Charlie Brown",
+            "role": "Marketing Manager",
+            "skills": ["SEO", "Content Marketing", "Social Media"]
+          }
+        ]
+      }
+    ]
+  }
+}
