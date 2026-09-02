@@ -1,0 +1,55 @@
+import csv
+import requests
+from bs4 import BeautifulSoup
+
+
+HN_URL = "https://news.ycombinator.com/"
+CSV_FILE = "02_top20.csv"
+
+
+def fetch_top_post(url):
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        print(f"Network error \n {e}")
+        return []
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    post_links = soup.select("span.titleline > a")
+    # print(post_links)
+
+    posts = []
+    for link in post_links[:20]:
+        title = link.text.strip()
+        titleUrl = link.get("href").strip()
+        # print(f"{title} \n {titleUrl} \n\n")
+        posts.append({"title": title, "url": titleUrl })
+
+    return posts
+
+
+def save_to_csv(posts):
+    if not posts:
+        print("Nothing to save")
+        return
+
+    with open(CSV_FILE, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=["title", "url"])
+        writer.writeheader()
+        writer.writerows(posts)
+
+    print(f"✅ Saved Hacker News to {CSV_FILE}")
+
+
+
+def main():
+    print("Scrapping the HN portal...")
+    posts = fetch_top_post(HN_URL)
+    print("Collected all data...")
+    save_to_csv(posts)
+
+
+if __name__ == "__main__":
+    main()
+
