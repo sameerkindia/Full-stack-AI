@@ -94,7 +94,7 @@ while True:
 
     while True:
         response = client.chat.completions.parse(
-            model='gemini-3.8-flash',
+            model='gemini-3.5-flash-lite',
             response_format=LLMOutputFormat,
             messages=message_history
         )
@@ -115,11 +115,26 @@ while True:
         if step == "START":
             print('Starting:', content)
         if step == "TOOL":
+            tool_name = parsed_result.tool
             tool_input = parsed_result.input
-            print(f'Tool: {content} {tool_input}' )
+            print(f'Tool: {tool_name} {tool_input}' )
+            print(f"This is content {tool_name}")
+            print(f"This is tool input {tool_input}")
+            print(f"This is Available tool {available_tools[tool_name]}")
 
-            tool_response = available_tools[content](tool_input)
-            message_history.append({"role":"developer", "content": json.dumps({"step":"OBSERVE","tool": "tool_to_call", "input": tool_input, "output": tool_response})})
+            tool_response = available_tools[tool_name](tool_input)
+            # message_history.append({"role":"developer", "content": json.dumps({"step":"OBSERVE","tool": "tool_to_call", "input": tool_input, "output": tool_response})})
+            message_history.append({
+                "role": "developer", 
+                "content": json.dumps({
+                    "step": "OBSERVE",
+                    "tool": tool_name, 
+                    "input": tool_input, 
+                    "output": tool_response
+                })
+            })
+
+            message_history.append({'role': 'user', 'content': 'Continue with the next step based on the tool output.'})
             continue
         
         elif step == "PLAN":
