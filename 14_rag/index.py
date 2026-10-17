@@ -1,0 +1,21 @@
+from pathlib import Path
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+
+pdf_path = Path(__file__).parent / 'nodejs.pdf'
+
+
+
+loader = PyPDFLoader(file_path = pdf_path)
+docs = loader.load()
+
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=400
+)
+
+chunks = text_splitter.split_documents(documents=docs)
+
+# print(docs[5] , "this is doc")
+# print(chunks , "this is chunks")
